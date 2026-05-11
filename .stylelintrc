@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "stylelint-config-recess-order",
+    "stylelint-config-recommended-scss",
+    "stylelint-config-recommended-vue/scss",
+    "stylelint-prettier/recommended"
+  ],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "rule-empty-line-before": ["always", { "except": "first-nested" }],
+    "scss/load-no-partial-leading-underscore": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "selector-class-pattern": [
+      "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(_([a-z0-9]+-?)+){0,1}$",
+      {
+        "message": "should be bem as .the-block__the-element_the-mod",
+        "resolveNestedSelectors": true,
+        "severity": "warning"
+      }
+    ],
+    "custom-property-pattern": [
+      "^[a-z](([a-z0-9-]+)?)$",
+      {
+        "message": "should be as --my-custom-property",
+        "severity": "warning"
+      }
+    ],
+    "keyframes-name-pattern": [
+      "^[a-z](([a-z0-9-]+)?)$",
+      {
+        "message": "should be as my-keyframe",
+        "severity": "warning"
+      }
+    ]
+  },
+  "cache": true
+}
