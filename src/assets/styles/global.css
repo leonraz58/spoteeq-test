@@ -1,0 +1,14 @@
+@import url(./css/_reset.css);
+@import url(./css/_fonts.css);
+
+:root {
+  --font-family-primary: "Inter-Display", sans-serif;
+}
+
+html {
+  font-family: var(--font-family-primary);
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: black;
+}
