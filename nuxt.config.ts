@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     extractCSS: false,
   },
 
-  modules: ["@nuxt/eslint"],
+  modules: ["@nuxt/eslint", "nuxt-svgo"],
 
   app: {
     rootId: "app",

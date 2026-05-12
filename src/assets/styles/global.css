@@ -3,12 +3,14 @@
 
 :root {
   --font-family-primary: "Inter-Display", sans-serif;
+  --container-indent: 15px;
+  --container-width-md: calc(770px + calc(var(--container-indent) * 2));
 }
 
 html {
   font-family: var(--font-family-primary);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   background-color: black;
 }
