@@ -9,7 +9,7 @@ import type {
 export interface SubscriptionsStoreState {
   countries: Country[]
   subscriptions: SubscriptionsType
-  selectedId: number
+  selectedId: number | null
   categories: CategoryType[]
 }
 
@@ -50,7 +50,7 @@ export const useSubscriptionsStore = defineStore("subs", {
           { id: 17, title: "Platinum - 3 месяца", price: 50, typeId: 4 },
         ],
       },
-      selectedId: 1,
+      selectedId: null,
       categories: [
         { id: 1, title: "Индивидуальные подписки (Individual)", background: "#ffd2d7" },
         {

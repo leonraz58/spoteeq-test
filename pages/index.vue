@@ -3,7 +3,7 @@ import { useSubscriptions } from "~/src/composables/useSubscriptions"
 
 const { countries, sortedSubscriptions } = useSubscriptions()
 
-const selectedCountry = ref<number>(2)
+const selectedCountry = ref<number>(1)
 
 const selectCountry = (id: number) => {
   selectedCountry.value = id
