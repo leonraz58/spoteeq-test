@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import { countries, type Subscription, subscriptions } from "~/src/constants/mock"
-import { sortSubscriptions } from "~/src/utils/sortSubscriptions"
+import { useSubscriptions } from "~/src/composables/useSubscriptions"
 
-const selectedCountry = ref<number>(1)
+const { countries, sortedSubscriptions } = useSubscriptions()
 
-export type ListByCategory = {
-  typeId: number
-  items: Subscription[]
-}
-
-const subSorted = computed(() => sortSubscriptions(subscriptions[selectedCountry.value] ?? []))
+const selectedCountry = ref<number>(2)
 
 const selectCountry = (id: number) => {
   selectedCountry.value = id
@@ -30,13 +24,13 @@ const selectCountry = (id: number) => {
           {{ country.value }}
         </div>
       </div>
-      <div v-if="subSorted.length === 0">Упс, мы ничего не нашли :(</div>
+      <div v-if="sortedSubscriptions(selectedCountry).length === 0">Упс, мы ничего не нашли :(</div>
       <div
         v-else
         class="subscriptions-page__categories-list"
       >
         <SubscriptionCategory
-          v-for="category in subSorted"
+          v-for="category in sortedSubscriptions(selectedCountry)"
           :key="category.typeId"
           :category="category"
         />
@@ -47,7 +41,7 @@ const selectCountry = (id: number) => {
 
 <style lang="scss">
 .subscriptions-page {
-  background-color: #1d1d1d;
+  background-color: var(--color-gray-900);
   border-radius: 42px;
   padding: 24px;
 
@@ -59,22 +53,23 @@ const selectCountry = (id: number) => {
 
   &__country {
     height: 44px;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #fff;
+    background-color: var(--color-shadow-700);
+    color: var(--color-gray-0);
     border-radius: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     flex: 1 1 0;
+    transition: all 0.3s ease;
 
     &_selected {
-      background-color: #e8e8e8;
-      color: black;
+      background-color: var(--color-gray-100);
+      color: var(--color-gray-1000);
     }
 
     &:hover:not(&_selected) {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: var(--color-shadow-600);
     }
   }
 

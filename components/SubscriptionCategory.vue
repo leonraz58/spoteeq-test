@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import type { ListByCategory } from "~/pages/index.vue"
-import { categoryTypes } from "~/src/constants/mock"
+import type { ListByCategory } from "~/src/types/subscriptions"
+import { useSubscriptions } from "~/src/composables/useSubscriptions"
 
 const props = defineProps<{ category?: ListByCategory }>()
 
+const { categories } = useSubscriptions()
+
 const category = computed(() => {
-  return categoryTypes.find((c) => c.id === props?.category?.typeId)
+  return categories.value.find((c) => c.id === props?.category?.typeId)
 })
 </script>
 
@@ -47,9 +49,9 @@ const category = computed(() => {
   }
 
   &__tooltip {
-    background-color: white;
+    background-color: var(--color-gray-0);
     opacity: 50%;
-    color: black;
+    color: var(--color-gray-1000);
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -66,9 +68,9 @@ const category = computed(() => {
 
   &__description {
     padding: 12px 16px;
-    background-color: rgba(0, 177, 63, 0.04);
+    background-color: var(--color-shadow-500);
     border-radius: 49px;
-    color: #00c245;
+    color: var(--color-green-400);
     margin-top: 14px;
     font-size: 14px;
   }

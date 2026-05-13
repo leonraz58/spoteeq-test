@@ -5,12 +5,25 @@
   --font-family-primary: "Inter-Display", sans-serif;
   --container-indent: 15px;
   --container-width-md: calc(770px + calc(var(--container-indent) * 2));
+  --color-gray-0: #fff;
+  --color-gray-100: #e8e8e8;
+  --color-gray-900: #1d1d1d;
+  --color-gray-1000: #000;
+
+  --color-shadow-100: rgba(255, 255, 255, 0.9);
+  --color-shadow-500: rgba(0, 177, 63, 0.04);
+  --color-shadow-600: rgba(255, 255, 255, 0.1);
+  --color-shadow-700: rgba(255, 255, 255, 0.05);
+  --color-shadow-800: rgba(0, 0, 0, 0.3);
+  --color-shadow-900: rgba(0, 0, 0, 0.2);
+
+  --color-green-400: #00c245;
 }
 
 html {
   font-family: var(--font-family-primary);
   font-style: normal;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  background-color: black;
+  color: var(--color-shadow-100);
+  background-color: var(--color-gray-1000);
 }
