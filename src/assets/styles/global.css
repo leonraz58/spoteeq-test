@@ -1,5 +1,6 @@
 @import url(./css/_reset.css);
 @import url(./css/_fonts.css);
+@import "floating-vue/dist/style.css";
 
 :root {
   --font-family-primary: "Inter-Display", sans-serif;

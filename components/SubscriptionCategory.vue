@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { ListByCategory } from "~/src/types/subscriptions"
 import { useSubscriptions } from "~/src/composables/useSubscriptions"
+import { vTooltip } from "floating-vue"
 
 const props = defineProps<{ category?: ListByCategory }>()
 
@@ -15,7 +16,18 @@ const category = computed(() => {
   <div class="subscription-category">
     <div class="subscription-category__title-block">
       <h3 class="subscription-category__title">{{ category?.title }}</h3>
-      <div class="subscription-category__tooltip">?</div>
+      <div
+        v-tooltip="{
+          content: 'some tooltip message',
+          placement: 'right',
+          delay: {
+            hide: 300,
+          },
+        }"
+        class="subscription-category__tooltip"
+      >
+        ?
+      </div>
     </div>
     <div class="subscription-category__item-list">
       <SubsctiptionItem
